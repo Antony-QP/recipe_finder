@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -15,22 +14,22 @@ export const Footer = () => {
             <h5 className='white-text'>Shop for your goods at...</h5>
             <ul>
               <li>
-                <a href='' className='grey-text text-lighten-3'>
+                <a href='https://www.waitrose.com/' className='grey-text text-lighten-3'>
                   Waitrose
                 </a>
               </li>
               <li>
-                <a href='' className='grey-text text-lighten-3'>
+                <a href='https://www.tesco.com/' className='grey-text text-lighten-3'>
                   Tesco
                 </a>
               </li>
               <li>
-                <a href='' className='grey-text text-lighten-3'>
+                <a href='https://www.marksandspencer.com/' className='grey-text text-lighten-3'>
                   Marks and Spencer
                 </a>
               </li>
               <li>
-                <a href='' className='grey-text text-lighten-3'>
+                <a href='https://groceries.morrisons.com/webshop/startWebshop.do' className='grey-text text-lighten-3'>
                   Morrisons
                 </a>
               </li>
