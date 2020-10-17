@@ -7,3 +7,38 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.card-panel {
+  width: 41%;
+}
+
+.alert {
+  background-color: #ffcdd2;
+}
+
+.success {
+  background-color: #c8e6c9;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"]::placeholder {
+  text-align: center;
+}
+
+button {
+  margin-right: 3px;
+}
+
+.alert-div {
+  display: block;
+  margin: auto;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

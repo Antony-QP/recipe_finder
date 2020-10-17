@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Navbar from "./components/layout/Navbar.js";
 import About from "./components/pages/About";
 import Footer from "./components/layout/Footer";
 import Recipes from "./components/recipes/Recipes";
+import Search from "./components/recipes/Search";
+import Alert from "./components/layout/Alert"
 import axios from 'axios';
 import "../src/App.css";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 
@@ -68,27 +70,61 @@ class App extends Component {
         // id: "2"
         // }
         // ],
-    loading: false
+    loading: false,
+    alert : null
   }
 
-  async componentDidMount(){
-    this.setState({loading:true})
-    console.log(process.env.REACT_APP_APPLICATION_KEY)
+  // async componentDidMount(){
+  //   this.setState({loading:true})
+  //   console.log(process.env.REACT_APP_APPLICATION_KEY)
     
-    const res = await axios.get(`https://api.edamam.com/search?q=prawn&app_id=${process.env.REACT_APP_APPLICATION_ID}&app_key=${process.env.REACT_APP_APPLICATION_KEY}&from=0&to=3`)
+  //   const res = await axios.get(`https://api.edamam.com/search?q=prawn&app_id=${process.env.REACT_APP_APPLICATION_ID}&app_key=${process.env.REACT_APP_APPLICATION_KEY}&from=0&to=3`)
 
-      this.setState({recipes: res.data.hits, loading: false})
-      console.log(res.data)
+  //     this.setState({recipes: res.data.hits, loading: false})
+  //     console.log(res.data)
+  // }
+// Search recipe api
+  searchRecipes = async (text) => {
+    this.setState({ loading : true})
+    const res = await axios.get(`https://api.edamam.com/search?q=${text}&app_id=${process.env.REACT_APP_APPLICATION_ID}&app_key=${process.env.REACT_APP_APPLICATION_KEY}&from=0&to=10`)
+
+    this.setState({recipes: res.data.hits, loading: false})
+    console.log(res.data)
   }
+
+  // Get single recipe information
+ 
+
+  clearRecipes = () => {
+    this.setState({ recipes : [], loading : false})
+  }
+
+  // Set Alert
+  setAlert = (msg, type) => {
+    this.setState({ alert : {msg: msg, type : type}})
+    
+    setTimeout(() => this.setState({ alert: null}), 3000)
+  }
+
+  
 
   render() {
     return (
     <Router>
       <body>
       <Navbar />
-      <Route exact path='/about' component={About} />
         <main>
+          <Alert alert={this.state.alert}/>
+          <Switch>
+            <Route exact path='/' render={props => (
+              <Fragment>
+          <Search searchRecipes={this.searchRecipes} clearRecipes={this.clearRecipes} showClear={this.state.recipes.length > 0 ? true : false} setAlert = {this.setAlert}/>
           <Recipes  loading={this.state.loading} recipes={this.state.recipes}></Recipes>
+              </Fragment>
+            )}/>
+            <Route path='/about' component={About}/>
+          </Switch>
+
         </main>
         <Footer></Footer>
       </body>

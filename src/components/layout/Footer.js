@@ -6,11 +6,7 @@ export const Footer = () => {
     <footer className='page-footer'>
       <div className='container'>
         <div className='row'>
-          <div className='col l6 s12'>
-            <h5 className='white-text'>More Information</h5>
-            <p className='grey-text text-lighten-4'>Some stuff</p>
-          </div>
-          <div className='col l4 offset-l2 s12'>
+          <div className='col l4  s12'>
             <h5 className='white-text'>Shop for your goods at...</h5>
             <ul>
               <li>
@@ -38,7 +34,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className='footer-copyright'>
-        <div className='container'>&copyright</div>
+        <div className='container'>&copy;Recipe Finder</div>
       </div>
     </footer>
   );
