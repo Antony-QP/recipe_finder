@@ -17,7 +17,7 @@ const RecipeItem = (props) => {
           {/* {ingredientLines.forEach(function(line){ 
           })} */}
           <ul id="ingredient-list">
-            {ingredientLines}
+        {ingredientLines.map((ingredient => <li>{ingredient}</li>))}
           </ul>
           <a className="waves-effect waves-light btn" href={url} style={{}}>Method</a> 
         </div>
