@@ -14,8 +14,6 @@ const RecipeItem = (props) => {
       </div>
       <div className="card-stacked">
         <div className="card-content ingredient-list">
-          {/* {ingredientLines.forEach(function(line){ 
-          })} */}
           <ul id="ingredient-list">
         {ingredientLines.map((ingredient => <li>{ingredient}</li>))}
           </ul>

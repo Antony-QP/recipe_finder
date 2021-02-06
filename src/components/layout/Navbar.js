@@ -7,12 +7,12 @@ export const Navbar = ({icon, title}) => {
     <nav>
       <div className='nav-wrapper'>
         <i className={icon}></i>
-        <a href='/' className='brand-logo'>
+        <a href='/recipe_finder' className='brand-logo'>
           {title}
         </a>
         <ul id='nav-mobile' className='right hide-on-med-and-down'>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to='/recipe_finder'>Home</Link>
           </li>
           <li>
             <Link to='/about'>About</Link>
